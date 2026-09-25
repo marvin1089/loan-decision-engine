@@ -30,6 +30,12 @@ The `LoanDecisionService` manages a list of `LoanRule` implementations. Each rul
 
 This allows additional business rules to be added without changing the basic evaluation structure.
 
+### UML Class Diagram
+
+The following diagram illustrates the structure of the loan decision engine and the relationship between the decision service, business rules, and domain model.
+
+![Loan Decision Engine - UML Class Diagram](docs/loan-decision-engine-uml.png)
+
 ## Technologies
 
 - Java 25
