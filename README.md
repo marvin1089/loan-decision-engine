@@ -52,7 +52,13 @@ Create a clean build including compilation, automated tests, and JAR packaging:
 mvn clean package
 ```
 
-The generated JAR is created in the `target` directory.
+The generated build artifacts are created in the `target` directory.
+
+Run the application from the compiled Maven classes:
+
+```bash
+java -cp target/classes de.marv.showcase.loan.Main
+```
 
 ## Demo
 
