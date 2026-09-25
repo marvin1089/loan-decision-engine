@@ -1,86 +1,74 @@
-\# Loan Decision Engine
-
-
+# Loan Decision Engine
 
 A small Java showcase project implementing a rule-based loan decision engine.
 
-
-
 The project demonstrates object-oriented Java development, separation of business rules and decision logic, automated testing with JUnit, and a reproducible Maven build.
 
-
-
-\## Business Rules
-
-
+## Business Rules
 
 A loan application is approved only if all configured rules are satisfied:
 
+- Disposable income >= 1,000 EUR
+- Loan amount <= 20,000 EUR
+- Applicant age >= 18 years
+- Employment duration >= 12 months
 
+## Architecture
 
-\- Disposable income >= 1,000 EUR
+The application separates loan application data, individual business rules, and the central decision logic.
 
-\- Loan amount <= 20,000 EUR
+- `LoanApplication` - represents the loan application data
+- `LoanRule` - common interface for all business rules
+- `IncomeRule` - validates disposable income
+- `LoanAmountRule` - validates the requested loan amount
+- `AgeRule` - validates the applicant's age
+- `EmploymentRule` - validates employment duration
+- `LoanDecisionService` - evaluates all configured rules
+- `Decision` - represents `APPROVED` or `REJECTED`
 
-\- Applicant age >= 18 years
+The `LoanDecisionService` manages a list of `LoanRule` implementations. Each rule implements the same interface and can therefore be evaluated through a common contract.
 
-\- Employment duration >= 12 months
+This allows additional business rules to be added without changing the basic evaluation structure.
 
+## Technologies
 
+- Java 25
+- Maven
+- JUnit 5
+- Git / GitHub
+- Eclipse IDE
 
-\## Architecture
-
-
-
-The application separates loan application data, business rules and decision logic.
-
-
-
-\- `LoanApplication` - represents the loan application data
-
-\- `LoanRule` - common interface for business rules
-
-\- `IncomeRule` - validates disposable income
-
-\- `LoanAmountRule` - validates the requested loan amount
-
-\- `AgeRule` - validates the applicant's age
-
-\- `EmploymentRule` - validates employment duration
-
-\- `LoanDecisionService` - evaluates all configured rules
-
-\- `Decision` - represents APPROVED or REJECTED
-
-
-
-The `LoanDecisionService` operates on `LoanRule` implementations, allowing additional business rules to be added without changing the central evaluation logic.
-
-
-
-\## Technologies
-
-
-
-\- Java 25
-
-\- Maven
-
-\- JUnit 5
-
-\- Git
-
-
-
-\## Build and Test
-
-
+## Build and Test
 
 Run the automated tests:
 
+```bash
+mvn test
+```
 
+Create a clean build including compilation, automated tests, and JAR packaging:
 
 ```bash
+mvn clean package
+```
 
-mvn test
+The generated JAR is created in the `target` directory.
 
+## Demo
+
+Example execution and successful Maven/JUnit build:
+
+![Loan Decision Engine - Maven Build and JUnit Test](docs/loan-decision-engine-demo.png)
+
+## Purpose
+
+This project was created as a compact Java showcase focusing on:
+
+- Object-oriented programming
+- Interfaces and polymorphism
+- Separation of business rules and decision logic
+- Automated testing with JUnit
+- Reproducible builds with Maven
+- Version control with Git
+
+The project intentionally keeps the functional scope small in order to focus on a clean and understandable Java architecture.
