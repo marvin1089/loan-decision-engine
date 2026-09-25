@@ -34,7 +34,7 @@ This allows additional business rules to be added without changing the basic eva
 
 The following diagram illustrates the structure of the loan decision engine and the relationship between the decision service, business rules, and domain model.
 
-![Loan Decision Engine - UML Class Diagram](docs/loan-decision-engine-uml.png)
+![Loan Decision Engine - UML Class Diagram](docs/UML_CodingArchitecture.png)
 
 ## Technologies
 
